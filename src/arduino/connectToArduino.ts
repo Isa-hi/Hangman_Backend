@@ -24,7 +24,7 @@ export function connectToArduino(portName, baudRate) {
             if (err) {
                 return console.log("Error al enviar datos:", err.message);
             }
-            console.log(`Datos enviado al Arduino: ${data}. \n`);
+            console.log(`\nDatos enviado al Arduino: ${data} `);
         });
     }
     
