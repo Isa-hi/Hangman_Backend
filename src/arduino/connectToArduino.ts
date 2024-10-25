@@ -1,13 +1,12 @@
 import { SerialPort } from "serialport";
 import { ReadlineParser } from "@serialport/parser-readline";
 
-// Export funciton to create connection to Arduino
 export function connectToArduino(portName, baudRate) {
     // Create a new SerialPort instance
     const port = new SerialPort({ path: portName, baudRate: baudRate });
     // Create a parser to read data line by line
     const listener = port.pipe(new ReadlineParser({ delimiter: "\r\n" }));   
-    // Handle errors on the serial port
+
     port.on("error", (err) => {
         console.error("Error:", err.message);
     });
