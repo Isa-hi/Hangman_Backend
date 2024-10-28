@@ -17,7 +17,7 @@ export function connectToArduino(portName, baudRate) {
     });
     
     // FUNCIÓN PARA ENVIAR DATOS AL ARDUINO
-    function sendToArduino(data) {
+    function sendToArduino(data) {       
         // Enviar el dato seguido de un salto de línea (opcional para que Arduino lo detecte con `readStringUntil('\n')`)
         port.write(data, async (err) => {
             if (err) {

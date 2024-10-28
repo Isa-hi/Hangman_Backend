@@ -1,27 +1,27 @@
 import { connectToArduino } from "../arduino/connectToArduino";
-import { Response } from "express";
+import { Response, Request } from "express";
 
 // Crear una conexión con el Arduino
-const { sendToArduino } = connectToArduino("COM5", 9600);
+const { sendToArduino } = connectToArduino("COM7", 9600);
 
 export class GameController {
-  static startGame(res: Response) {
-    sendToArduino("Iniciar juego\n");
-    res.send("Juego iniciado");
+  static startGame(req: Request, res: Response) {
+    sendToArduino("Iniciar juego");
+    res.json({ message: "Juego iniciado" });
   }
 
-  static loseLife(res: Response) {
-    sendToArduino("Perder vida\n");
-    res.send("Vida perdida");
+  static loseLife(req: Request, res: Response) {
+    sendToArduino("Perder vida");
+    res.json({ message: "Vida perdida" });
   }
 
-  static gameOver(res: Response) {
-    sendToArduino("Perder juego\n");
-    res.send("Juego perdido");
+  static gameOver(req: Request, res: Response) {
+    sendToArduino("Perder juego");
+    res.json({ message: "Juego perdido" });
   }
 
-  static gameWon(res: Response) {
-    sendToArduino("Ganar juego\n");
-    res.send("Juego ganado");
+  static gameWon(req: Request, res: Response) {
+    sendToArduino("Ganar juego");
+    res.json({ message: "Juego ganado" });
   }
 }
