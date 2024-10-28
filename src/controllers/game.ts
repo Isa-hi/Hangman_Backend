@@ -11,17 +11,17 @@ export class GameController {
   }
 
   static loseLife(req: Request, res: Response) {
-    sendToArduino("Perder vida");
+    sendToArduino("Perder vida\n");
     res.json({ message: "Vida perdida" });
   }
 
   static gameOver(req: Request, res: Response) {
-    sendToArduino("Perder juego");
+    sendToArduino("Perder juego\n");
     res.json({ message: "Juego perdido" });
   }
 
   static gameWon(req: Request, res: Response) {
-    sendToArduino("Ganar juego");
+    sendToArduino("Ganar juego\n");
     res.json({ message: "Juego ganado" });
   }
 }
